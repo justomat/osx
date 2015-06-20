@@ -1,24 +1,53 @@
-# install Xcode CLI Tools
-# create the placeholder file that's checked by CLI updates' .dist code
-# in Apple's SUS catalog
-touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
-# find the CLI Tools update
-PROD=$(softwareupdate -l | grep "\*.*Command Line" | head -n 1 | awk -F"*" '{print $2}' | sed -e 's/^ *//' | tr -d '\n')
-# install it
-softwareupdate -i "$PROD" -v
-rm /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
 
 # install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # get homebrew cask
 brew install caskroom/cask/brew-cask
+brew tap homebrew/dupes
+brew tap caskroom/versions
+brew tap caskroom/fonts
 
-brew install git vim curl wget
-brew cask install  google-chrome \
- python python3 atom iterm2 alfred \
- spectacle gitbox dropbox robomongo \
- sublime-text boot2docker docker-compose \
- asepsis java \
+binaries=(
+  coreutils
+  findutils
+  bash
+  git
+  vim
+  curl
+  wget
+  homebrew/dupes/grep
+)
+
+apps=(
+  google-chrome
+  python
+  python3
+  atom
+  iterm2
+  alfred
+  spectacle
+  gitbox
+  dropbox
+  robomongo
+  sublime-text3
+  boot2docker
+  docker-compose
+  asepsis
+  java
+)
+
+fonts=(
+  font-roboto
+  font-inconsolata-dz
+  font-source-code-pro
+)
+
+echo "installing binaries"
+brew install ${binaries[@]}
+
+echo "installing apps"
+brew cask install --appdir="/Applications" ${apps[@]}
+brew cask alfred link
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
@@ -28,3 +57,6 @@ nvm alias default stable
 
 pip install --upgrade distribute
 pip install --upgrade pip
+
+#echo "PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH" >> ~/.bash_profile
+

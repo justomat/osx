@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Alot of these configs have been taken from the various places
-# on the web, most from here
-# https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-
 # Set the colours you can use
 black='\033[0;30m'
 white='\033[0;37m'
@@ -24,34 +20,6 @@ cecho() {
   echo "${2}${1}${reset}"
   return
 }
-
-# Set continue to false by default
-CONTINUE=false
-
-echo ""
-cecho "###############################################" $red
-cecho "#        DO NOT RUN THIS SCRIPT BLINDLY       #" $red
-cecho "#         YOU'LL PROBABLY REGRET IT...        #" $red
-cecho "#                                             #" $red
-cecho "#              READ IT THOROUGHLY             #" $red
-cecho "#         AND EDIT TO SUIT YOUR NEEDS         #" $red
-cecho "###############################################" $red
-echo ""
-
-
-echo ""
-cecho "Have you read through the script you're about to run and " $red
-cecho "understood that it will make changes to your computer? (y/n)" $red
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  CONTINUE=true
-fi
-
-if ! $CONTINUE; then
-  # Check if we're continuing and output a message if not
-  cecho "Please go read the script, it only takes a few minutes" $red
-  exit
-fi
 
 # Here we go.. ask for the administrator password upfront and run a
 # keep-alive to update existing `sudo` time stamp until script has finished
