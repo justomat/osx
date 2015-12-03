@@ -1,6 +1,6 @@
 
 # install Homebrew
-#ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # get homebrew cask
 brew install caskroom/cask/brew-cask
 brew tap homebrew/dupes
@@ -48,6 +48,9 @@ brew install ${binaries[@]}
 echo "installing apps"
 brew cask install --appdir="/Applications" ${apps[@]}
 brew cask alfred link
+
+echo "installing fonts"
+brew cask install ${fonts[@]}
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
