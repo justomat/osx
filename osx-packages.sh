@@ -90,5 +90,5 @@ nvm alias default stable
 pip install --upgrade distribute
 pip install --upgrade pip
 
-#echo "PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH" >> ~/.bash_profile
+echo "PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH" >> ~/.bash_profile
 
