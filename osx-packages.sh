@@ -3,42 +3,72 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # get homebrew cask
 brew install caskroom/cask/brew-cask
+brew tap homebrew/versions
 brew tap homebrew/dupes
+brew tap homebrew/php
 brew tap caskroom/versions
 brew tap caskroom/fonts
 
 binaries=(
-  coreutils
-  findutils
+  axel
   bash
-  git
-  vim
+  brew-cask
+  clang-format
+  cmake
+  coreutils
   curl
-  wget
+  curl
+  docker
+  docker-compose
+  docker-machine
+  findutils
+  git
   homebrew/dupes/grep
+  maven
+  php70
+  php70-mcrypt
+  python
+  python3
+  thefuck
+  tmux
+  tree
+  vagrant
+  vim
+  vim
+  wget
+  zsh
 )
 
 apps=(
-  google-chrome
-  python
-  python3
-  atom
-  iterm2
   alfred
-  spectacle
-  gitbox
-  dropbox
-  robomongo
-  sublime-text3
-  boot2docker
+  atom
+  ccleaner
   docker-compose
-  asepsis
+  dropbox
+  google-chrome
+  haskell-platform
+  intellij-idea
+  iterm2
   java
+  mendeley-desktop
+  nvm
+  sequel-pro
+  spectacle
+  sublime-text3
+  transmission
+  xquartz
+  virtualbox
 )
 
 fonts=(
-  font-roboto
+  font-anka-coder
+  font-fira-code
+  font-fira-mono
+  font-hasklig
   font-inconsolata-dz
+  font-input
+  font-monoid
+  font-roboto
   font-source-code-pro
 )
 
@@ -52,9 +82,8 @@ brew cask alfred link
 echo "installing fonts"
 brew cask install ${fonts[@]}
 
-# install nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
-# install node
+
+
 nvm install stable
 nvm alias default stable
 
