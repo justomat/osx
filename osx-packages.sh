@@ -32,8 +32,6 @@ binaries=(
   thefuck
   tmux
   tree
-  vagrant
-  vim
   vim
   wget
   zsh
@@ -43,7 +41,6 @@ apps=(
   alfred
   atom
   ccleaner
-  docker-compose
   dropbox
   google-chrome
   haskell-platform
@@ -57,6 +54,8 @@ apps=(
   sublime-text3
   transmission
   xquartz
+  vagrant
+  vagrant-bar
   virtualbox
 )
 
